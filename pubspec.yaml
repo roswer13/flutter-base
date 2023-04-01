@@ -29,16 +29,19 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  build_runner: ^2.3.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
   http: ^0.13.5
-  mockito: ^5.4.0
+  rxdart: ^0.27.7
 
 dev_dependencies:
+  bloc_test: ^9.1.1
+  build_runner: ^2.3.3
+  mockito: ^5.4.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
