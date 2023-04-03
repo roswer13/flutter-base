@@ -6,8 +6,6 @@ import 'package:flutter_base/presentation/bloc/weather_state.dart';
 import 'package:rxdart/rxdart.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  final GetCurrentWeather _getCurrentWeather;
-
   WeatherBloc(this._getCurrentWeather) : super(WeatherEmpty()) {
     on<OnCityChanged>(
       (event, emit) async {
@@ -28,6 +26,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       transformer: debounce(const Duration(milliseconds: 500)),
     );
   }
+
+  final GetCurrentWeather _getCurrentWeather;
 
   EventTransformer<T> debounce<T>(Duration duration) {
     return (events, mapper) => events.debounceTime(duration).flatMap(mapper);

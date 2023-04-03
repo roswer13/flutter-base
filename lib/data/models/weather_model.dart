@@ -12,14 +12,6 @@ class WeatherModel extends Equatable {
     required this.humidity,
   });
 
-  final String cityName;
-  final String main;
-  final String description;
-  final String iconCode;
-  final double temperature;
-  final int pressure;
-  final int humidity;
-
   factory WeatherModel.fromJson(Map<String, dynamic> json) => WeatherModel(
         cityName: json['name'],
         main: json['weather'][0]['main'],
@@ -29,6 +21,14 @@ class WeatherModel extends Equatable {
         pressure: json['main']['pressure'],
         humidity: json['main']['humidity'],
       );
+
+  final String cityName;
+  final String main;
+  final String description;
+  final String iconCode;
+  final double temperature;
+  final int pressure;
+  final int humidity;
 
   Map<String, dynamic> toJson() => {
         'weather': [

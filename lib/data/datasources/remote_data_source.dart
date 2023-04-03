@@ -11,8 +11,8 @@ abstract class RemoteDataSource {
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
-  final http.Client client;
   RemoteDataSourceImpl({required this.client});
+  final http.Client client;
 
   @override
   Future<WeatherModel> getCurrentWeather(String cityName) async {
