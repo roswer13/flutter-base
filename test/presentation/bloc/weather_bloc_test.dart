@@ -47,14 +47,14 @@ void main() {
     'should emit [loading, has data] when data is gotten successfully',
     build: () {
       when(mockGetCurrentWeather.execute(tCityName))
-          .thenAnswer((_) async => Right(tWeather));
+          .thenAnswer((_) async => const Right(tWeather));
       return weatherBloc;
     },
-    act: (bloc) => bloc.add(OnCityChanged(tCityName)),
+    act: (bloc) => bloc.add(const OnCityChanged(tCityName)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       WeatherLoading(),
-      WeatherHasData(tWeather),
+      const WeatherHasData(tWeather),
     ],
     verify: (bloc) {
       verify(mockGetCurrentWeather.execute(tCityName));
@@ -65,14 +65,14 @@ void main() {
     'should emit [loading, error] when get data is unsuccessful',
     build: () {
       when(mockGetCurrentWeather.execute(tCityName))
-          .thenAnswer((_) async => Left(ServerFailure('Server failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server failure')));
       return weatherBloc;
     },
-    act: (bloc) => bloc.add(OnCityChanged(tCityName)),
+    act: (bloc) => bloc.add(const OnCityChanged(tCityName)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       WeatherLoading(),
-      WeatherError('Server failure'),
+      const WeatherError('Server failure'),
     ],
     verify: (bloc) {
       verify(mockGetCurrentWeather.execute(tCityName));
