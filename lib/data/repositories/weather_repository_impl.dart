@@ -8,9 +8,9 @@ import 'package:flutter_base/domain/entities/weather.dart';
 import 'package:flutter_base/domain/repositories/weather_repository.dart';
 
 class WeatherRepositoryImpl implements WeatherRepository {
-  final RemoteDataSource remoteDataSource;
-
   WeatherRepositoryImpl({required this.remoteDataSource});
+
+  final RemoteDataSource remoteDataSource;
 
   @override
   Future<Either<Failure, Weather>> getCurrentWeather(String cityName) async {

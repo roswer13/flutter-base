@@ -49,6 +49,7 @@ void main() {
     humidity: 70,
   );
 
+  // ignore: no_leading_underscores_for_local_identifiers
   Widget _makeTestableWidget(Widget body) {
     return BlocProvider<WeatherBloc>.value(
       value: mockWeatherBloc,
@@ -95,7 +96,8 @@ void main() {
     'should show widget contain weather data when state is has data',
     (WidgetTester tester) async {
       // arrange
-      when(() => mockWeatherBloc.state).thenReturn(WeatherHasData(tWeather));
+      when(() => mockWeatherBloc.state)
+          .thenReturn(const WeatherHasData(tWeather));
 
       // act
       await tester.pumpWidget(_makeTestableWidget(const WeatherPage()));
