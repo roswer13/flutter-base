@@ -75,8 +75,6 @@ class WeatherPage extends StatelessWidget {
                         defaultColumnWidth: const FixedColumnWidth(150.0),
                         border: TableBorder.all(
                           color: Colors.grey,
-                          style: BorderStyle.solid,
-                          width: 1,
                         ),
                         children: [
                           TableRow(children: [
